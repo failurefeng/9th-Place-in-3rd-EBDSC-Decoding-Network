@@ -36,7 +36,7 @@ home
 ```
 
 # 训练和测试你自己的模型
-1. 准备好数据集文件: 如'./dataset_file\data_fil_split3.h5'，可通过`dataset_file\hdf5_produce3.py`来将大量.csv文件中的数据转换为hdf5格式，相应.csv文件示例如`dataset_file\data_9.csv`所示。
+1. 准备好数据集文件: 如'./dataset_file\data_fil_split3.h5'(原数据集来自赛事官方，这里就不上传了，各位按方法制作即可)，可通过`dataset_file\hdf5_produce3.py`来将大量.csv文件中的数据转换为hdf5格式，相应.csv文件示例如`dataset_file\data_9.csv`所示。
 
 2. 训练和测试模型: 在 `configs/transformerlstm_ours.yaml` 中修改相应参数，在终端运行 `python main.py`
 
