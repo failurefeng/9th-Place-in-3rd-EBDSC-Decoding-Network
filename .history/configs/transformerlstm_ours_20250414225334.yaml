@@ -1,0 +1,35 @@
+modes:  # 选择网络、损失函数，是否训练
+    demod_method: 'Transformer_puredemod'
+    width_method: 'HybridModel_width'
+    demod_network_path: "amr.models.networks.Transformer_puredemod"
+    width_network_path: "amr.models.networks.width_net_old1_915326"
+    loss: 'loss_cos' # 使用'loss_CE_and_MSE'会报错，
+    optimizer: 'adamw' # 'adamw' or 'sgd'
+    train: True #! 是否训练
+    load_pretrained: False #! 是否在训练阶段载入预训练模型
+    load_model_width: False #! 是否导入码元宽度预测网络
+    training_pretrained_path: './results\demod\s1\best_CQ.pth' #! 训练阶段载入预训练模型的路径
+    testing_pretrained_path: './results\demod\s1\best_CQ.pth' #! 测试阶段载入预训练模型的路径
+    model_width_path: './results\model_width\best_model91.5326.pth' #! 导入码元宽度预测网络的路径
+    result_save_path: './results\demod\s1' #! 结果保存路径
+
+data_settings:  # 数据读取载入方式，用于设置data_loader
+    dataset: 'ours' #我们要使用自己定义的数据集
+    hdf5_path: 'D:\Desktop\AMC competition\data_fil_total\data_fil_split3.h5' #! 数据集路径
+    Xmode:
+        type: 'iq'
+        options:
+            IQ_norm: False  # 归一化到[0, 1]
+            zero_mask: False  #! 是否对IQ数据随机进行零值掩码,用于模拟真实场景中的数据缺失或增强模型的鲁棒性
+    mod_type: [ 'BPSK', 'QPSK', '8PSK', 'MSK', '8QAM', '16QAM', '32QAM', '8APSK', '16APSK', '32APSK','others']
+opt_params:  # 网络训练参数
+    batch_size: 512
+    epochs: 2
+    lr: 4e-4
+    workers: 8
+    seed: 1
+    gpu: 0
+    cpu: False
+    noise_flag: False #! 是否在训练阶段给码元宽度添加噪声
+    early_stop: True # 是否使用early stop
+    stop_patience: 20 # 早停的耐心值

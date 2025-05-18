@@ -1,0 +1,11 @@
+best_model91.5326.pth下测试：
+prepare_ppt\from_zero\best_CQ.pth：        CQ_score: 59.4370，rely_CQ_score: 56.0040
+
+prepare_ppt\zero+std0.5_0.5\best_CQ.pth：  CQ_score: 59.0557，rely_CQ_score: 56.1950
+(train57.0952,valid57.0236)epoch29.pthh：  CQ_score: 59.1035，rely_CQ_score: 56.3200   
+
+prepare_ppt\zero+std0.25_0.25\best_CQ.pth：CQ_score: 59.3304，rely_CQ_score: 56.1509
+(train60.7013,59.0553)epoch49.pth：        CQ_score: 59.2815，rely_CQ_score: 56.0945
+
+prepare_ppt\zero+std0.5_0.0\best_CQ_epoch48_59.4918：  CQ_score: 59.4125，rely_CQ_score: 56.5527
+ (train58.7489,valid58.7241)epoch98.pth:               CQ_score: 58.6051，rely_CQ_score: 55.9130
