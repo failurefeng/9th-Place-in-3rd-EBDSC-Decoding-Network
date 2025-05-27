@@ -1,0 +1,2 @@
+best_model91.5326.pth下：
+'./results\Transformer_puredemod\best\ours\checkpoints\prepare_ppt\from_zero\best_CQ.pth' ：

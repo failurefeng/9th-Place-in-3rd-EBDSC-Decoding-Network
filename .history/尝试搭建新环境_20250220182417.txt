@@ -1,0 +1,25 @@
+尝试在ubuntu20.04、cuda11.3的机器上下载安装cuda11.8的torch：
+conda install pytorch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 pytorch-cuda=11.8 -c pytorch -c nvidia # 失败了
+pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https://download.pytorch.org/whl/cu118 # 能下，但很慢
+下载安装cuda11.3的torch：
+pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 # 从阿里云镜像下载到本地再用pip install，很快
+pip install matplotlib==3.3.* #根据matplotlib的版本历史，matplotlib 3.3.x是最后一个支持Python 3.8的系列。
+pip install ptflops==0.7.2.2 # 根据官方文档，如果您使用的是PyTorch 1.x版本，推荐使用ptflops==0.7.2.2
+pip install fvcore # 实际反馈：Successfully installed fvcore-0.1.5.post20221221 iopath-0.1.10 portalocker-3.0.0 pyyaml-6.0.2 tabulate-0.9.0 termcolor-2.4.0 tqdm-4.67.1 yacs-0.1.8
+pip install thop # 实际反馈：Successfully installed thop-0.1.1.post2209072238
+pip install h5py # 实际反馈：Successfully installed h5py-3.11.0
+
+关于pickle，kimi告诉我：实际上pickle是Python标准库的一部分，不需要单独下载或安装。
+
+pip install pandas # 实际反馈：Successfully installed pandas-2.0.3 pytz-2024.2 tzdata-2024.2
+
+pip install tables # version=3.8.0
+pip install torchsummaryX # Successfully installed torchsummaryX-1.3.0
+pip install einops # Successfully installed einops-0.8.0
+
+为了使用flash-attn加速transformer训练并减小显存占用，我又卸载了原来的torch系列，新的下载命令如下：
+pip install needed_pakages\windows\torch-2.1.0+cu121-cp38-cp38-win_amd64.whl -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
+pip install needed_pakages\windows\torchaudio-2.1.0+cu121-cp38-cp38-win_amd64.whl -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
+pip install needed_pakages\windows\torchvision-0.16.0+cu121-cp38-cp38-win_amd64.whl -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
+pip install needed_pakages\windows\flash_attn-2.4.1+cu121torch2.1cxx11abiFALSE-cp38-cp38-win_amd64.whl -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
+

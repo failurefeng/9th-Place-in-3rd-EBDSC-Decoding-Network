@@ -1,0 +1,2 @@
+best_model91.5326.pth下：
+'./results\Transformer_puredemod\best\ours\checkpoints\prepare_ppt\from_zero\best_CQ.pth' ：CQ_score: 59.4370，rely_CQ_score: 56.0040

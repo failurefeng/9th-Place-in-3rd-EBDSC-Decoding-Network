@@ -1,0 +1,31 @@
+modes:  # 选择网络、损失函数，是否训练
+    method: 'Transformer_puredemod'
+    path: 'best'
+    loss: 'loss_cos' # 使用'loss_CE_and_MSE'会报错，
+    optimizer: 'adamw' # 'adamw' or 'sgd'
+    train: False #! 是否训练
+    load_pretrained: True #! 是否在训练阶段载入预训练模型
+    load_pretrained_pos: False # 是否在训练阶段载入预训练模型的位置编码
+    load_model_width: True #! 是否导入码元宽度预测网络
+    training_load_pretrained_path: './results\Transformer_puredemod\best\ours\checkpoints\prepare_ppt\from_zero\best_CQ.pth' #! 训练阶段载入预训练模型的路径
+    testing_load_pretrained_path: './results\Transformer_puredemod\best\ours\checkpoints\prepare_ppt\zero+std0.5_0.5\epoch39_56.6574.pth' #! 测试阶段载入预训练模型的路径
+    load_model_width_path: './results\model_width\best_model91.5326.pth' #! 导入码元宽度预测网络的路径
+    ddp: False
+data_settings:  # 数据读取载入方式，用于设置data_loader
+    dataset: 'ours' #我们要使用自己定义的数据集
+    Xmode:
+        type: 'iq'
+        options:
+            IQ_norm: False  # 归一化到[0, 1]
+            zero_mask: False  #! 是否对IQ数据随机进行零值掩码,用于模拟真实场景中的数据缺失或增强模型的鲁棒性
+            random_mix: False
+    mod_type: [ 'BPSK', 'QPSK', '8PSK', 'MSK', '8QAM', '16QAM', '32QAM', '8APSK', '16APSK', '32APSK','others']
+opt_params:  # 网络训练参数
+    batch_size: 512
+    epochs: 120
+    lr: 4e-4
+    workers: 8
+    seed: 1
+    gpu: 0
+    cpu: False
+    early_stop: True #! 是否使用early stop

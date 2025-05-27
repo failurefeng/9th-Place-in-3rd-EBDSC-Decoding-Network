@@ -1,0 +1,4 @@
+best_model91.5326.pth下测试：
+'./results\Transformer_puredemod\best\ours\checkpoints\prepare_ppt\from_zero\best_CQ.pth'：CQ_score: 59.4370，rely_CQ_score: 56.0040
+'./results\Transformer_puredemod\best\ours\checkpoints\prepare_ppt\zero+std0.5_0.5\best_CQ.pth'：CQ_score: 59.0557，rely_CQ_score: 56.1950
+'./results\Transformer_puredemod\best\ours\checkpoints\prepare_ppt\zero+std0.25_0.25\best_CQ.pth'：
